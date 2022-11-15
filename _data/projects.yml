@@ -1,42 +1,139 @@
 - project :
     print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
-    url: https://github.com/chrjabs/Grape-Academic-Theme # Full URL
+    url: https://github.com/Shesh6/Deep-Renormalization # Full URL
     image:
-      path: "portfolio.png" # path: assets/project/
-      alt: "A screenshot of the portfolio page"
-    date: 05/2022 &ndash; Developing
-    title: Grape-Theme
-    summary: Academic portfolio jekyll theme.
-    description: A modification of the Grape-Theme for jekyll to be useable as an academic portfolio.
+      path: "DeepRenorm.png" # path: assets/project/
+      alt: Deep Renormalization
+    date: 04/2019
+    title: Deep Renormalization
+    summary:
+    description: Probing deep autoencoders for evidence of learned renormalization methods.
     contents:
-        - title: 1. Portfolio Page
-          image:
-            path: portfolio.png
-            alt: "A screenshot of the portfolio page"
-          description: <li>Concise portfolio page</li>
-            <li>Recent publications</li>
-            <li>Projects</li>
-        - title: 2. Optional Blog Functionality
-          image:
-            path: home.png
-            alt: "A screenshot of the blog page"
-          description: <li>Responsive Layout</li>
-            <li>Tags</li> 
-            <li>Pagination</li>
-        - title: 3. Tags Page
-          image:
-            path: tags.png
-            alt: "A screenshot of the tags page"
-          description: <li>Responsive Layout</li> 
-            <li>Tags</li> 
+      - title: Deep Renormalization
+        description: This project probes the role which renormalization plays in the operation of (certain) deep neural networks. It builds on work by Mehta & Schwab (2014), proving the equivalence of training deep belief networks to variational block spin renormalization on the 2D Ising model, and Alexandrou et al. (2019), training an autoencoder on Ising model equilibrium states and showing how the encoded states contain information about the phase transition.
+          <br>Firstly, we replicate the work done by Alexandrou et al. and then probe the results using some of the methods in Mehta & Schwab (2014) to test the hypothesis that the autoencoder converges on block renormalization as an inference technique.</li>
+          <br>We expand upon Alexandrou et al. by widening the latent dimension, and upon Mehta & Schwab by implementing back propagation to visualize neuron activations in an autoencoder.While the work revealed many interesting properties of the autoencoder model, the results did not support the hypothesis. The reports summarize the process we used to investigate the hypothesis and reach our conclusion.</li>
 
 - project:
     print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
-    url:  # Full URL
-    image: # path: assets/project/
-    date: 06/2019 &ndash; Developing
-    title: Dummy project
-    summary: This is a Dummy
-    description:  
+    url:  https://github.com/Shesh6/Quantum-Code-Generation-with-Conditional-RNNs # Full URL
+    image: 
+      path: QuantumGen.png # path: assets/project/
+      alt: Quantum Code Generation with Conditional RNNs
+    date: 05/2020
+    title: Quantum Code Generation with Conditional RNNs
+    summary:
+    description: Generating quantum circuits for desired quantum states.
+    contents:
+      - title: Quantum Code Generation with Conditional RNNs
+      - description: A Conditional Stacked Recurrent Neural Network with GRU cells is used to generate quantum circuits based on desired target quantum states. The conditional network is trained on randomly sampled circuits and their simulated output states as conditions that are introduced into the internal memory state of the initial GRU cell.
+          <br> An analysis of the method and the results is provided, as well as a discussion about possible avenues for refinement, and an overview of the subjects of conditional RNNs and quantum circuits.
+
+- project:
+    print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
+    url:  https://github.com/Shesh6/coronacop_app # Full URL
+    image: 
+      path: CoronaCop.png # path: assets/project/
+      alt: CoronaCop
+    date: 09/2020
+    title: CoronaCop
+    summary:
+    description: Playful twitter bot that fits masks onto unmasked people in photos.
+    contents:
+      - title: CoronaCop
+      - description: Using Twitter's API to deploy a fine-tuned Pytorch face-detection and mask-classification model which detects unmasked people in photos and edit masks onto their faces. 
+
+- project:
+    print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
+    url:  https://github.com/Shesh6/Watson-with-Transformers # Full URL
+    image: 
+    date: 10/2020
+    title: Contradictory, My Dear Watson
+    summary:
+    description: Entailment classification for Kaggle competition using transformer trained on TPU.
+    contents:
+      - title: Contradictory, My Dear Watson
+        description: Using Tensorflow and the HuggingFace transformer library along with Weights and Biases to classify entailment in text, for the Kaggle competition "Contradictory, My Dear Watson".
+          <br>Inspired by Kaggle user rohanrao, I use sklearn's stratified k-fold cross validation to make sure the training samples are balanced over the languages, and I added TPU support to run on cloud instances. I also use the Google Translate library to optionally translate data for transformers that were trained exclusively on English.
+          <br>The model reached 29th place with on Kaggle 92.7% accuracy on the test set when fine-tuned on an XLM RoBERTAa Large transformer model that was pretrained on the XNLI entailment dataset.
+
+- project:
+    print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
+    url:  https://github.com/Shesh6/Deep-Learning-Experiments # Full URL
+    image:
+    date: 
+    title: Fun Projects
+    summary: Warning! Puns ahead!
+    description: Experiments with the FastAI framework for deep learning.
+    contents:
+      - title: <a href="https://github.com/Shesh6/Deep-Learning-Experiments/blob/master/Ol-Sense%20-%20The%20Olsen%20Sister%20Discriminator.ipynb">Ol-Sense&#58; The Olsen Sister Discriminator</a>
+        image: 
+          path: OlSense.png
+        description: Using the fastai library to build a CNN Olsen sister classifier based on ResNet using a custom dataset. (Webscraping, image classification)
+      - title: <a href="https://github.com/Shesh6/Deep-Learning-Experiments/blob/master/Pok%C3%A9model%20-%20Pokemon%20Type%20Classification.ipynb">Pokémodel&#58; Multi-label Classification of Pokémon Type</a>
+        image:
+          path: Pokemodel.png
+        description: Can I use knowledge of old Pokemon to infer the types of new Pokemon based on their pictures? (Multi-label image classification, transfer learning)
+      - title: <a href="https://github.com/Shesh6/Deep-Learning-Experiments/blob/master/SinText%20-%20Text%20Removal%20with%20U-Net.ipynb">SinText&#58; Text Removal with U-Net</a>
+        image:
+          path: SinText.png
+        description: U-Net trained on pictures stamped with random text is able to remove text from pictures and reliably fill in contextual information. (U-Net, transfer learning, feature loss)
+      - title: <a href="https://github.com/Shesh6/Deep-Learning-Experiments/blob/master/BeatLM%20-%20A%20Beatles%20Language%20Model.ipynb">BeatLM&#58; A Beatles Song Classifier and Generator</a>
+        image:
+          path: BeatLM.png
+        description: Using Transfer Learning to classify Beatles songs by songwriter as well as generating new songs. (Language modeling, transfer learning, RNN)
+
+- project:
+    print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
+    url: # Full URL
+    image: 
+    date:
+    title: Coursework
+    summary:
+    description: Repositories for courses taken during studies
+    contents:
+      - title: <a href="https://github.com/Shesh6/IL181--Deep-Learning-Tutorial">Minerva IL181&#58; Deep Learning Tutorial</a>
+        description: Student-led graduate-level tutorial on Deep Learning theory and applications.
+      - title: <a href="https://github.com/Shesh6/CS156--Machine-Learning-for-Science-and-Profit">Minerva CS156&#58; Machine Learning for Science and Profit</a>
+        description: Students learn to apply core machine learning techniques — such as classification, perceptron, neural networks, support vector machines, hidden Markov models, and nonparametric models of clustering — as well as fundamental concepts such as feature selection, cross-validation and over-fitting. Students program machine learning algorithms to make sense of a wide range of data, such as genetic data, data used to perform customer segmentation or data used to predict the outcome of elections.
+      - title: <a href="https://github.com/Shesh6/CS166--Modeling-Simulation-and-Decision-Making">Minerva CS166&#58; Modeling, Simulation and Decision Making</a>
+        description: Learn how to apply advanced modeling techniques to analyze and predict the behavior of social, physical and economic systems. You will learn from specific examples applied to portfolio management, traffic flow management, and analyzing social networks. The course covers three modeling frameworks — cellular automata for modeling interactions on grids of cells, networks for more general interactions between nodes in a graph, and Monte Carlo simulations showing how we can use simulation to generate random numbers and how we can use random numbers to drive simulations of complex phenomena. The course covers the theoretical (mathematical) and practical (implementation) aspects of each of the three frameworks.
+      - title: <a href="https://github.com/Shesh6/CS164--Optimization-Methods">Minerva CS164&#58; Optimization Methods</a>
+        description: Learn to use and analyze optimization techniques such as linear, quadratic, semidefinite and mixed-integer programming. Explore optimization algorithms such as Newton’s method, interior point methods and branch and bound methods.
+      - title: <a href="https://github.com/Shesh6/CS154--Contemporary-Applied-Mathematics">Minerva CS154&#58; Contemporary Applied Mathematics</a>
+        description: Methods are explored to interpolate data, solve linear and non-linear systems of equations, and model dynamical systems with the use of ordinary and partial differential equations. Additionally, Fourier Analysis is applied to model and process signals. Numerical implementations of the mathematical methods are developed using MATLAB or Octave.
+      - title: <a href="https://github.com/Shesh6/CS152--Harnessing-Artificial-Intelligence-Algorithms">Minerva CS152&#58; Harnessing Artificial Intelligence Algorithms</a>
+        description: Apply methods and algorithms from Artificial Intelligence (AI) — such as propositional logic, logic programming, predicate calculus, and computational reasoning — to a diverse range of applications from robot navigation to restaurant selection with expert systems. Discover AI in action through an exploration of robotics, and gain an appreciation of its convergence towards modern machine learning methods.
+      - title: <a href="https://github.com/Shesh6/CS111--Mathematical-Modeling">Minerva CS111&#58; Mathematical Modeling</a>
+        description: Mathematical modeling, Single and Multivariable Calculus, Theory and Applications of Linear Algebra.
+      - title: <a href="https://github.com/Shesh6/CS112---Statistical-Inference-and-Data-Analysis">Minerva CS112&#58; Statistical Inference and Data Analysis
+        description: The course focuses on the application of predictive and causal statistical inference for decision making across a wide range of scenarios and contexts. The first part of the course focuses on parametric and non-parametric predictive modeling (regression, cross-validation, bootstrapping, random forests, etc.). The second part of the course focuses on causal inference in randomized control trials and observational studies (statistical matching, synthetic control methods, encouragement design/instrument variables, regression discontinuity design, etc.). Technical aspects of the course focus on computational approaches and real-world challenges, drawing cases from the life sciences, public policy and political science, education, and business. This course also emphasizes the importance of being able to articulate one’s findings effectively and tailor methodology and policy/decision-relevant recommendations for different audiences.
+      - title: <a href="https://github.com/Shesh6/CS110--Algorithms-and-Data-Structures">Minerva CS110&#58; Algorithms and Data Structures</a>
+        description: Apply core concepts in design and analysis of algorithms, data structures, and computational problem-solving techniques to address complex problems. Hashing, searching, sorting, tree algorithms, dynamic programming, greedy algorithms, divide and conquer, backtracking, random number generation, and randomized algorithms are examples of algorithms you will learn to exploit to solve problems ranging from logistics to route optimization to DNA sequencing.
+
+- project:
+    print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
+    url: # Full URL
+    image: 
+    date:
+    title: Independent Learning
+    summary:
+    description: Repositories for courses taken independently
+    contents:
+      - title: <a href="https://github.com/Shesh6/Stanford-CS231n">Stanford CS231n&#58; Convolutional Neural Networks for Visual Recognition</a>
+        description: Completed assignments in both PyTorch and Tensorflow.
+      - title: <a href="https://github.com/Shesh6/CMU-CS-11-747-Neural-Networks-for-Natural-Language-Processing">CMU CS11-747&#58; Neural Networks for Natural Language Processing</a>
+        description: Exercises from Graham Neubig's notes and his course Neural Networks for Natural Language Processing in PyTorch.
+      - title: <a href="https://github.com/Shesh6/Quantum-Machine-Learning">University of Toronto Quantum Machine Learning</a>
+        description:  Quantum Computing MOOC from University of Toronto focusing on Machine Learning applications using qiskit.
+      - title: <a href="https://github.com/Shesh6/Machine-Learning---Stanford-University">Stanford University Machine Learning</a>
+        description: Stanford's Machine Learning course in MATLAB by Andrew Ng.
+      - title: <a href="https://github.com/Shesh6/Machine-Learning-A-to-Z">Udemy Machine Learning A-to-Z</a>
+        description: Machine Learning course on Udemy in R and Python.
