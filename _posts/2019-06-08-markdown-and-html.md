@@ -104,3 +104,9 @@ Try using `.width-30`, `.width-40`, `.width-50`, `.width-60`, `.width-70` and `.
 | :------- | :-------: | -------: |
 | Content 1 | Content 2 | Content 3 |
 | Content 1 | Content 2 | Content 3 |
+
+$x$
+
+$$
+x
+$$
