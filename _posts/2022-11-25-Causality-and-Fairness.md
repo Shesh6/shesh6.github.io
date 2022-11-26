@@ -388,7 +388,7 @@ An illustration from [Google Research](https://research.google.com/bigpicture/at
 [Hardt, Price and Srebro (2016)]() illustrate these tradeoffs in reality looking at FICO credit scores:
 ![]({{ site.baseurl }}/assets/post/unfairness_fico_scores.png)
 
-### Clashing Definitions
+### Clashing Definitions  
 Recall that ProPublica found the COMPAS model led to outcomes where non-recidivists who were white were much less likely to be tagged as high risk. Can COMPAS still be argued to be fair, or biased to favor African Americans?
 
 According to the company's response, it can. Instead of examining the probability that a high risk defendant didn't recidivate, they examined the probability that a high-risk defendant did not recidivate. They found that more white high-risk defendants avoided recidivation than African American high-risk defendants!

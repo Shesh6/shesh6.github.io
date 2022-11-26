@@ -1,12 +1,17 @@
 header{
     margin-bottom: 60px;
     @extend %page-padding;
+    nav::-webkit-scrollbar {
+        display: none;
+    }
     nav{
         white-space: nowrap;
         display:block!important;
         overflow-x: scroll;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
         ul{
             li{
                 position: relative;
