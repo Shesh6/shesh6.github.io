@@ -7,6 +7,14 @@
 </li>
 {% endif %}
 
+{% if social.cv %}
+<li>
+  <a href="{{ social.cv }}" target="_blank" title="Download CV">
+    <i class="fas fa-file"></i>
+  </a>
+</li>
+{% endif %}
+
 {% if social.orcid %}
 <li>
   <a href="https://orcid.org/{{ social.orcid }}" target="_blank" title="ORCID">

@@ -5,19 +5,28 @@ webpage: https://shesh6.github.io
 experience: # Remove for hiding the experience section
   - start: December 2020
     end: July 2022
-    experience : 🤖 Harvard University, Research Fellow
+    experience : 🤖 [Harvard University](https://banaji.sites.fas.harvard.edu/), Research Fellow
   - start: August 2019
     end: March 2020
-    experience : 💻 Quantum Machines, Researcher
+    experience : 💻 [Quantum Machines](https://www.quantum-machines.co/), Researcher
   - start: September 2016
     end: May 2020
-    experience : 🎓 Minerva University, B.Sc. Computer Science and Physics
+    experience : 🎓 [Minerva University](https://www.minerva.edu/), B.Sc. Computer Science and Physics
   - start: 2017
     end: 2020
-    experience : ☕ Internships - AI Collective, Satellogic, Wolfram Research, Harvard University, Minerva University
+    experience : |
+                ☕ Machine Learning Internships
+                - [AI Collective](https://www.linkedin.com/in/meganororke/)
+                - [Satellogic](https://satellogic.com/)
+                - [Wolfram Research](https://community.wolfram.com/groups/-/m/t/2029289)
+                - Harvard University
+                - Minerva University
   - start: November 2012
     end: August 2016
-    experience : 🪖 IDF Intelligence Corps., Intelligence Analyst
+    experience : |
+                🪖 IDF Intelligence Corps., Intelligence Analyst
+                
+                > ⬇️ [Download Full CV](https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf)
 interests: # Remove for hiding the interests section
   - Theory of Machine Learning
   - Natural Language Processing
@@ -45,6 +54,7 @@ social:
   twitter:
   youtube:
   facebook:
-  instagram:
+  instagram: 
+  cv: https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf
 awards: # Remove for hiding the awards section
   - "Voted \"Most Likely to Include This in His CV\" at Blich High School"

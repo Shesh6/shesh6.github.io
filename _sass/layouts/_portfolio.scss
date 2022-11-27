@@ -120,6 +120,9 @@
           opacity: 1;
         }
       }
+      a:link {
+        text-decoration: dashed underline;
+      }
     }
     .skills {
       padding-top: 35px;
