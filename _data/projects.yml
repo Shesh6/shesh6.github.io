@@ -91,7 +91,7 @@
 - project:
     print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
-    url: # Full URL
+    url: https://github.com/stars/Shesh6/lists/coursework
     image: 
     date:
     title: Coursework
@@ -120,7 +120,7 @@
 - project:
     print: True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
     modal: True # If 'True' is selected, modal can open in 'portfolio.html'. 
-    url: # Full URL
+    url: https://github.com/stars/Shesh6/lists/independent-learning
     image: 
     date:
     title: Independent Learning

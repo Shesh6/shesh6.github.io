@@ -5,13 +5,19 @@ webpage: https://shesh6.github.io
 experience: # Remove for hiding the experience section
   - start: December 2020
     end: July 2022
-    experience : Harvard University, Research Fellow
+    experience : 🤖 Harvard University, Research Fellow
   - start: August 2019
     end: March 2020
-    experience : Quantum Machines, Researcher
+    experience : 💻 Quantum Machines, Researcher
   - start: September 2016
     end: May 2020
-    experience : Minerva University, B.Sc. Computer Science and Physics
+    experience : 🎓 Minerva University, B.Sc. Computer Science and Physics
+  - start: 2017
+    end: 2020
+    experience : ☕ Internships - AI Collective, Satellogic, Wolfram Research, Harvard University, Minerva University
+  - start: November 2012
+    end: August 2016
+    experience : 🪖 IDF Intelligence Corps., Intelligence Analyst
 interests: # Remove for hiding the interests section
   - Theory of Machine Learning
   - Natural Language Processing
