@@ -1,6 +1,8 @@
 image: assets/img/smile.png
 username: Yoav Rabinovich
-description: Research Fellow, Banaji Lab, Harvard University. B.Sc. Computer Science and Physics, Minerva University.
+description: |
+              Research Fellow, Banaji Lab, Harvard University.
+              > B.Sc. Computer Science and Physics, Minerva University.
 webpage: https://shesh6.github.io
 experience: # Remove for hiding the experience section
   - start: December 2020
@@ -15,18 +17,15 @@ experience: # Remove for hiding the experience section
   - start: 2017
     end: 2020
     experience : |
-                ☕ Machine Learning Internships
-                - [AI Collective](https://www.linkedin.com/in/meganororke/)
-                - [Satellogic](https://satellogic.com/)
-                - [Wolfram Research](https://community.wolfram.com/groups/-/m/t/2029289)
-                - Harvard University
-                - Minerva University
+                🗃️ Other Projects
+                - [AI Collective](https://www.linkedin.com/in/meganororke/) &ndash; Chatbot for women's health nonprofit
+                - [Satellogic](https://satellogic.com/) &ndash; Segmentation for satellite imagery
+                - [Wolfram Research](https://community.wolfram.com/groups/-/m/t/2029289) &ndash; Quantum computing research
+                - [Harvard University](https://scholar.harvard.edu/celooser/home) &ndash; Computer vision for psychology study
+                - [Independent Projects](/index.html#project)
   - start: November 2012
     end: August 2016
-    experience : |
-                🪖 IDF Intelligence Corps., Intelligence Analyst
-                
-                > ⬇️ [Download Full CV](https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf)
+    experience : 🪖 IDF Intelligence Corps., Intelligence Analyst
 interests: # Remove for hiding the interests section
   - Theory of Machine Learning
   - Natural Language Processing
@@ -37,7 +36,7 @@ skills: # Remove for hiding the skills section
   - skill: Handsome
     value: 80
   - skill: Humble
-    value: 95
+    value: 99
 social:
   email: rabinovich.yoav@gmail.com # Full email address, e.g. "sample@google.com"
   orcid: 

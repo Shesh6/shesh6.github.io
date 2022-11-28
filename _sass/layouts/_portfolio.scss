@@ -104,10 +104,25 @@
           position: absolute;
           width: 15px;
           height: 15px;
-          top: 42%;
+          top: 43px;
           left: -10px;
           background-color: $theme-color;
           border-radius: 50%;
+        }
+        li#download.meta::before {
+          content: "\f358";
+          font-family: "Font Awesome 6 Free";
+          font-size: 180%;
+          color: #fff;
+          text-align: center;
+          line-height: 100%;
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          top: 22px;
+          left: -16px;
+          background-color: $theme-color;
+          border-radius: 100%;
         }
       }
       @keyframes fadein {
