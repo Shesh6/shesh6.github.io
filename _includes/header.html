@@ -7,7 +7,7 @@
         {% case current[0] %}
         <!-- home -->
         {% when none %}
-        <li class="current">Home</li>
+        <li class="current">Portfolio</li>
         {% if site.publications %}
           <a href="{{ '/publications' | relative_url }}">
             <li class="btn-nav">Publications</li>
@@ -23,7 +23,7 @@
             <li class="btn-nav">Blog</li>
           </a>
           <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">Tags</li>
+            <li class="btn-nav">Tags</li> 
           </a>
         {% endif %}
         <!-- publications -->
@@ -126,6 +126,9 @@
           </a>
         {% endif %}
         {% endcase %}
+        <a href="{{ site.data.profile.social.cv }}">
+          <li class="btn-nav">Download CV</li>
+        </a>
       </ul>
     </nav>
   </header>
