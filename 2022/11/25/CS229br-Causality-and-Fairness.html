@@ -31,8 +31,8 @@
 <meta property="og:title" content="Causality and Fairness" />
 <meta name="author" content="Yoav Rabinovich" />
 <meta property="og:locale" content="en_GB" />
-<meta name="description" content="Causality and Fairness Causality Resources Causality by Judea Pearl is considered seminal in the field of causality. However, the following is mostly adapted from Patterns, Predictions, and Actions: A story about machine learning by Moritz Hardt and Benjamin Recht." />
-<meta property="og:description" content="Causality and Fairness Causality Resources Causality by Judea Pearl is considered seminal in the field of causality. However, the following is mostly adapted from Patterns, Predictions, and Actions: A story about machine learning by Moritz Hardt and Benjamin Recht." />
+<meta name="description" content="The following are notes taken on lecture 9 of the Harvard CS229br seminar on machine learning theory, concerning causality and fairness in machine learning. Thanks to Prof. Boaz Barak and his team for producing this seminar and sharing it freely." />
+<meta property="og:description" content="The following are notes taken on lecture 9 of the Harvard CS229br seminar on machine learning theory, concerning causality and fairness in machine learning. Thanks to Prof. Boaz Barak and his team for producing this seminar and sharing it freely." />
 <meta property="og:site_name" content="Yoav Rabinovich CV" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-11-25T00:00:00+02:00" />
@@ -41,7 +41,7 @@
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@Yoav Rabinovich" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Yoav Rabinovich"},"dateModified":"2022-11-25T00:00:00+02:00","datePublished":"2022-11-25T00:00:00+02:00","description":"Causality and Fairness Causality Resources Causality by Judea Pearl is considered seminal in the field of causality. However, the following is mostly adapted from Patterns, Predictions, and Actions: A story about machine learning by Moritz Hardt and Benjamin Recht.","headline":"Causality and Fairness","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/11/25/Causality-and-Fairness.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/img/smile.png"},"name":"Yoav Rabinovich"},"url":"/2022/11/25/Causality-and-Fairness.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Yoav Rabinovich"},"dateModified":"2022-11-25T00:00:00+02:00","datePublished":"2022-11-25T00:00:00+02:00","description":"The following are notes taken on lecture 9 of the Harvard CS229br seminar on machine learning theory, concerning causality and fairness in machine learning. Thanks to Prof. Boaz Barak and his team for producing this seminar and sharing it freely.","headline":"Causality and Fairness","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/11/25/CS229br-Causality-and-Fairness.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/img/smile.png"},"name":"Yoav Rabinovich"},"url":"/2022/11/25/CS229br-Causality-and-Fairness.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -51,6 +51,9 @@
   <div class="container">
     
 
+
+
+
 <section id="header-nav">
   <header>
     <nav>
@@ -58,7 +61,7 @@
         
         <!-- others -->
         <a href="/">
-          <li class="btn-nav">Home</li>
+          <li class="btn-nav">Portfolio</li>
         </a>
         
           <a href="/publications">
@@ -72,16 +75,14 @@
         
         
           <a href="/blog">
-            <li class="current btn-nav">Blog</li>
+            <li class="current btn-nav">Posts</li>
           </a>
-          <a href="/tags">
-            <li class="btn-nav">Tags</li>
-          </a>
+          
         
         
-        <a href="https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf">
+        <!-- <a href="https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf">
           <li class="btn-nav">Download CV</li>
-        </a>
+        </a> -->
       </ul>
     </nav>
   </header>
@@ -100,13 +101,15 @@
 <div id="post">
   <section class="post-header">
     <h1 class="title">Causality and Fairness</h1>
-    <p class="subtitle">Notes for ML Theory Seminar</p>
+    <p class="subtitle">Notes on Lecture 9, Harvard CS229br, ML Theory Seminar</p>
     <p class="meta">
       November 25, 2022
     </p>
   </section>
   <section class="post-content">
-    <h1 id="causality-and-fairness">Causality and Fairness</h1>
+    <p>The following are notes taken on <a href="https://harvard.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87a43259-6b47-49f1-931f-acfa0177fe20">lecture 9</a> of the <a href="https://boazbk.github.io/mltheoryseminar/cs229br">Harvard CS229br</a> seminar on machine learning theory, concerning causality and fairness in machine learning. Thanks to <a href="https://www.boazbarak.org/">Prof. Boaz Barak</a> and his team for producing this seminar and sharing it freely.</p>
+
+<h1 id="causality-and-fairness">Causality and Fairness</h1>
 <h2 id="causality">Causality</h2>
 
 <div class="admonition abstract rounded">
@@ -407,7 +410,7 @@ q\ll 1, &amp; X=0 \cap Y=0
 
 <p>If the causal graph was reversed, and $Z$ became a confounder, it would’ve been crucial to condition on $Z$ to estimate the causal probability. However in this case, it’s crucial that we do not. Hospitalization here is an example of a <em>collider</em>. The effect of variable $Z$ on the causal probability of $X$ and $Y$ can be split into three cases: <em>fork/confounder</em>, <em>mediator</em> and <em>collider</em>. Only in the confounder case should we control for $Z$.</p>
 
-<p>.png/assets/post//assets/post/confounder_mediator_collider.png)</p>
+<p><img src="/assets/post/confounder_mediator_collider.png" alt="" /></p>
 
 <h3 id="causal-models">Causal Models</h3>
 <p>There are two ways to interpret causal models. According to frequentists, the causal probability $\Pr[A\mid \text{do }B]$ is the ratio of experiments where $A$ occurs if we do $B$ and repeat the experiment many times. Bayesians see the causal probability as a <em>counter-factual</em>: We might have already observed the outcome of $A$ without doing $B$, but we can say that $A$ would’ve occurred with probability $\Pr[A\mid \text{do }B]$ in a world where we did do $B$.</p>

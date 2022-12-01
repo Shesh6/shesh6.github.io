@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Favicon code from realfavicongenerator.net -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#8b51a3">
+<meta name="msapplication-TileColor" content="#563d7c">
+<meta name="theme-color" content="#ffffff">
+
+  <!--jQuery-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Privacy | Yoav Rabinovich CV</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Privacy" />
+<meta name="author" content="Yoav Rabinovich" />
+<meta property="og:locale" content="en_GB" />
+<meta name="description" content="The following are notes taken on lecture 11 of the Harvard CS229br seminar on machine learning theory, concerning privacy in machine learning. Thanks to Prof. Boaz Barak and his team for producing this seminar and sharing it freely." />
+<meta property="og:description" content="The following are notes taken on lecture 11 of the Harvard CS229br seminar on machine learning theory, concerning privacy in machine learning. Thanks to Prof. Boaz Barak and his team for producing this seminar and sharing it freely." />
+<meta property="og:site_name" content="Yoav Rabinovich CV" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-30T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Privacy" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Yoav Rabinovich" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Yoav Rabinovich"},"dateModified":"2022-11-30T00:00:00+02:00","datePublished":"2022-11-30T00:00:00+02:00","description":"The following are notes taken on lecture 11 of the Harvard CS229br seminar on machine learning theory, concerning privacy in machine learning. Thanks to Prof. Boaz Barak and his team for producing this seminar and sharing it freely.","headline":"Privacy","mainEntityOfPage":{"@type":"WebPage","@id":"/2022/11/30/CS229br-Privacy.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/img/smile.png"},"name":"Yoav Rabinovich"},"url":"/2022/11/30/CS229br-Privacy.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<!--jQuery-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<body>
+  <div class="container">
+    
+
+
+
+
+<section id="header-nav">
+  <header>
+    <nav>
+      <ul>
+        
+        <!-- others -->
+        <a href="/">
+          <li class="btn-nav">Portfolio</li>
+        </a>
+        
+          <a href="/publications">
+            <li class="btn-nav">Publications</li>
+          </a>
+        
+        
+          <a href="/presentations">
+            <li class="btn-nav">Presentations</li>
+          </a>
+        
+        
+          <a href="/blog">
+            <li class="current btn-nav">Posts</li>
+          </a>
+          
+        
+        
+        <!-- <a href="https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf">
+          <li class="btn-nav">Download CV</li>
+        </a> -->
+      </ul>
+    </nav>
+  </header>
+</section>
+<!--MathJax-->
+<script>
+    MathJax = {
+      tex: {
+        // tags: 'ams',
+        inlineMath: [['$', '$'], ["\\(", "\\)"]]
+      }
+    };
+</script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js"></script>
+
+<div id="post">
+  <section class="post-header">
+    <h1 class="title">Privacy</h1>
+    <p class="subtitle">Notes on Lecture 11, Harvard CS229br, ML Theory Seminar</p>
+    <p class="meta">
+      November 30, 2022
+    </p>
+  </section>
+  <section class="post-content">
+    <p>The following are notes taken on <a href="https://harvard.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b432eac7-ff09-420b-9dc6-ad08016deacd">lecture 11</a> of the <a href="https://boazbk.github.io/mltheoryseminar/cs229br">Harvard CS229br</a> seminar on machine learning theory, concerning privacy in machine learning. Thanks to <a href="https://www.boazbarak.org/">Prof. Boaz Barak</a> and his team for producing this seminar and sharing it freely.</p>
+
+<h1 id="privacy">Privacy</h1>
+<h2 id="background">Background</h2>
+<p>Models are often trained on private data, in which case model outputs may be problematically compromising. <a href="https://dataprivacylab.org/projects/identifiability/paper1.pdf">Work by Latanya Sweeny</a> demonstrated that simple, publicly-available demographic data can uniquely identify individuals, and managed to obtain the medical records of the governor of Massachusetts in the year $2000$. <a href="https://www.computer.org/csdl/proceedings-article/sp/2008/3168a111/12OmNqIzh1I">Narayanan and Shmatikov (2008)</a> managed to de-anonymize movie-raters by cross-referencing Netflix and IMDb datasets. <a href="https://arxiv.org/abs/1802.08232">Carlini, Liu, Erlingsson, Kos and Song (2019)</a> showed that large language models memorize private data and can be made to regurgitate sensitive information such as credit card and social security numbers.</p>
+
+<p>With access to enough queries, one can partially reconstruct a model’s weights, and in turn partially reconstruct the training data. <a href="https://arxiv.org/abs/2012.07805">Carlini et al. (2021)</a> demonstrated this weakness in GPT$-3$, and showed that as little as $10$ occurrences of a detail in the training data can lead to memorization. <a href="https://www.vice.com/en/article/j5npeg/why-is-google-translate-spitting-out-sinister-religious-prophecies">A 2018 VICE article</a> showed that Google Translate memorizes available resources for languages where training data is sparse, often resulting in high scores for biblical phrases during translation.</p>
+
+<p>Possible solutions come with tradeoffs:</p>
+<ul>
+  <li>Cryptographic methods can ensure privacy at a large cost to efficiency, and restriction on control of access to the information.</li>
+  <li>Differential privacy methods let us manually tune the privacy/utility tradeoff, but presently the tradeoff is not good enough to be desirable.</li>
+  <li>Heuristic approaches can get good privacy for minimal utility tradeoff, but do not offer guarantees.</li>
+</ul>
+
+<h2 id="cryptography">Cryptography</h2>
+<h3 id="private-key-encryption">Private Key Encryption</h3>
+<p>In private key encryption, some key and plain text message are <em>encrypted</em> to produce a cipher, which can be <em>decrypted</em> using the key.</p>
+
+\[\begin{matrix}
+E: &amp;\underbrace{ \{ 0,1 \}^{n} }_{ \text{Key of length }n } &amp;\times &amp;\underbrace{ \{ 0,1 \}^{l} }_{ \text{Message of length }l } &amp;\to &amp;\underbrace{ \{ 0,1 \}^{m} }_{ \text{Cipher of length }m } \\
+D: &amp;\underbrace{ \{ 0,1 \}^{n} }_{ \text{Key} } &amp;\times &amp;\underbrace{ \{ 0,1 \}^{m} }_{ \text{Cipher} } &amp;\to &amp;\underbrace{ \{ 0,1 \}^{l} }_{ \text{Message} }
+\end{matrix}\]
+
+<p>An encryption is <em>correct</em> if encrypting and decrypting a message with the same key retrieves the message:</p>
+
+\[\forall_{k}\forall_{x \in \{ 0,1 \}^{l}}, \; D_{k}(E_{k}(x)) = x\]
+
+<h3 id="one-time-pad">One-Time Pad</h3>
+<p>The one-time pad is a private key encryption algorithm, performed by simply combining the message and the key using modular addition (the XOR bitwise operation), which is reversible when the key is known:</p>
+
+\[E_{k}(x) = x \oplus k, \; D_{k}(y) = y \oplus k\]
+
+<p>The one-time pad scheme is <em>perfectly secret</em>, meaning that an adversary with access to the cipher and not the key cannot guess the message any better than by chance:</p>
+
+<div class="admonition abstract rounded">
+    <p class="admonition-title">Perfect Secrecy
+</p>
+    <p>
+        
+\[\forall\text{ Algorithm } A, \; \underset{\substack{x \sim \{ 0,1 \}^{l} \\k \sim \{ 0,1 \}^{n}} }{ \Pr }[A(E_{k}(x)) = x] \leq 2^{-l}\]
+
+    </p>
+</div>
+
+<p>Shannon proved that the one-time pad achieves perfect secrecy with $n=l$: acknowledge that for fixed message $x$, its modular addition with a uniformly random key $k$ is distributed uniformly, and thus the cipher $y$ is not correlated with the message $x$. For any arbitrary algorithm $A$:</p>
+
+\[\underset{\substack{x \sim \{ 0,1 \}^{l} \\k \sim \{ 0,1 \}^{n}} }{ \Pr }[A(x \oplus k) = x] = \Pr[A(y) = x]\leq 2^{-l}\]
+
+<p>The one-time pad can be extended to messages over some set of integers, setting the modular addition according to the minimum value:</p>
+
+\[k,x \in \mathbb{Z}_{t}^{n}, \; E_{k}(x)= (x_{1}+k_{1} \ \mathrm{mod} \ t, \dots, x_{n} + k_{n} \ \mathrm{mod} \ t)\]
+
+<p>Note that our observation that $x \oplus k$ is distributed uniformly only holds if we have at least as many possible keys as we have possible messages. This means the key also has to be sampled from the same integer range.</p>
+
+<p>Shannon also proved that <em>every</em> perfectly-secret scheme requires $n\geq l$ (otherwise guessing the key would be easier than guessing the message). This entails that every message must have its own key, meaning that transmitting encrypted messages using such schemes is inefficient, and reusing keys is insecure.</p>
+
+<div class="admonition info rounded">
+    <p class="admonition-title"><a href="https://en.wikipedia.org/wiki/Venona_project">The Venona Project</a>
+</p>
+    <p>
+        <p>Historically, the reusing of keys allowed Gene Grabeel and her collaborators to decrypt Soviet communications and expose many of their operatives in the west. Modern encryption uses computational schemes where keys can be shared between messages, making the key exponentially smaller than the volume of data it can encrypt.</p>
+
+    </p>
+</div>
+
+<h3 id="fully-homomorphic-encryption">Fully Homomorphic Encryption</h3>
+<p>FHE schemes have the property that even without knowing the private key, known operations can be performed on the ciphers which compute ciphers of bitwise operations of messages:</p>
+
+\[\begin{align*}
+E_{k}(x) \times E_{k}(x') &amp;\to E_{k}(x \ \mathrm{AND} \ x') \\
+E_{k}(x) \times E_{k}(x') &amp;\to E_{k}(x \ \mathrm{OR} \ x') \\
+E_{k}(x) &amp;\to E_{k}(\mathrm{NOT} \  x)
+\end{align*}\]
+
+<p>or equivalently,</p>
+
+\[E_{k}(x) \times E_{k}(x') \to E_{k}(x \ \mathrm{NAND} \ x')\]
+
+<p>which forms a universal basis for computation.</p>
+
+<p>Encryption in FHE is a randomized algorithm. Each bit is encrypted and decrypted using a key, and any two ciphers can be evaluated using NAND. The correctness of evaluation is defined as an approximation such that the total variation between the NAND of the ciphers and the cipher or the NAND of the messages is exponentially small in $n$.</p>
+
+\[\forall_{k}\forall_{b,b' \in \{ 0,1 \}}, \; \mathrm{NAND}(E_{k}(x),E_{k}(x')) \equiv E_{k}(\neg(b \wedge b'))\]
+
+<p>The <em>computational secrecy</em> property shows that each bit cannot be guessed better than chance, considers only algorithms that run in polynomial time, a similar equivalency condition that the advantage over half is exponentially small in $n$. For each bit:</p>
+
+<div class="admonition abstract rounded">
+    <p class="admonition-title">Computational Secrecy
+</p>
+    <p>
+        
+\[\forall \text{ Algoritm of time }\ll \exp(n), \; \underset{\substack{b \sim \{ 0,1 \} \\k \sim \{ 0,1 \}^{n}} }{ \Pr }[A(E_{k}(b)) = b] \leq \frac{1}{2}+\exp(-n)\]
+
+    </p>
+</div>
+
+<p>This holds even if an adversary has seen exponentially many samples of ciphers using the same key! This means perfect secrecy in practice, for cheap.</p>
+
+<div class="admonition info rounded">
+    <p class="admonition-title">FHE in Practice
+</p>
+    <p>
+        <p>FHE was proven to exist under reasonable assumptions by <a href="https://www.cs.cmu.edu/~odonnell/hits09/gentry-homomorphic-encryption.pdf">Gentry (2009)</a>. Further work has limited this to standard assumptions of learning with error. <a href="https://github.com/homenc/HElib">Some</a> <a href="https://www.microsoft.com/en-us/research/project/microsoft-seal/">implementations</a> exist, although still slow.</p>
+
+    </p>
+</div>
+
+<h3 id="fhd-for-learning">FHD for Learning</h3>
+<p>FHD is promising for machine learning, and there’s active research on this topic. Since NAND is a universal basis for computation, we can express any algorithm $A$ on data $x$ in terms of NAND operations, and using the properties of FHE, $A$ can also be performed on the cipher $E_{k}(x)$ to produce $E_{k}(A(x))$. If $A$ is a training algorithm, we can run $A$ on encrypted data to produce an encrypted model $E_{k}(A(x))$. The drawbacks of FHD is the issue of querying an encrypted model, as well as the computational overhead associated with this kind of training, which is currently a factor in the order of one million.</p>
+
+<h2 id="differential-privacy">Differential Privacy</h2>
+<p>Another candidate direction for enforcing privacy in machine learning is differential privacy (For more see <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf">The Algorithmic Foundations of Differential Privacy by Cynthia Dwork and Aaron Roth</a>).</p>
+
+<p>For dataset $\mathcal{X} = { x_{1},\dots,x_{i},\dots,x_{n} }$, algorithm $A: \; x \to h$ is called <em>$\epsilon$-differentially private</em> if after observing output $h_{i}$, the posterior probability that $x_{i}$ was in $\mathcal{X}$ is only a factor of $\pm \epsilon$ away from the prior.</p>
+
+<div class="admonition abstract rounded">
+    <p class="admonition-title">Differential Privacy
+</p>
+    <p>
+        <p>More formally, considering two datasets that differ only in one coordinate, $\forall \mathcal{X},\mathcal{X}’ \; \text{s.t.} |\mathcal{X}\Delta \mathcal{X}’| = 1$ (where $\Delta$ stands for the symmetric difference), then for any set of outputs $S$:
+\(\forall S, \; \Pr[A(\mathcal{X})\in S] \in e^{ \pm \epsilon }\Pr[A(\mathcal{X}) \in S]\)</p>
+
+    </p>
+</div>
+
+<p>where the probability is over the randomness in $A$, which must be randomized. Sometimes an additive factor of $\delta$ is introduced, but we’ll deal with the usual case where $\delta$ is negligible compared to $\epsilon$.</p>
+
+<p>In a context of data privacy, where there might be fear that the inclusion of some datapoint might lead to an undesirable decision, differential privacy ensures that the effect of the inclusion of any datapoint on the probability of any decision is smaller than a factor of $e^{\epsilon}$.</p>
+
+<p>One might suggest that a weaker requirement of an additive factor is enough to satisfy privacy needs. However, let’s examine a worst case where the algorithm $A$ spits out some input data as-is.</p>
+
+\[A(\mathcal{X}) = \{ x_{i_{1}},\dots,x_{i_{k}} \},\text{ for random } i_{1},\dots,i_{k},k\ll n\]
+
+<p>While this algorithm is obviously not private, it does satisfy the additive definition. If $\mathcal{X},\mathcal{X}’$ differ by one coordinate, the probability of this coordinate to be chosen for the leak such that the output is sufficient to differentiate between the datasets is proportional to $\frac{k}{n}$, so $k$ can be chosen to satisfy an additive definition of privacy:</p>
+
+\[\|\Pr[A(\mathcal{X}) \in S] - \Pr[A(\mathcal{X}') \in S]\| \leq \frac{k}{n}\]
+
+<h3 id="properties-of-differential-privacy">Properties of Differential Privacy</h3>
+<p>1) $\epsilon$-differential private algorithms can be <em>composed</em> together while retaining privacy.
+   If $A$ is $\epsilon$-DP and $A’$ is $\epsilon’$-DP, then $B(\mathcal{X}) = A(\mathcal{X}),A’(\mathcal{X})$ is $(\epsilon+\epsilon’)$-DP.
+   <em>Proof</em>: considering all outputs $\forall h,h’$ for datasets differing by at most one coordinate $|\mathcal{X}\Delta \mathcal{X}| \leq 1$:</p>
+
+\[\Pr[A(\mathcal{X}),A'(\mathcal{X}) = (h,h')] \leq e^{ \epsilon }\Pr[A(\mathcal{X}')=h]\cdot e^{\epsilon'}\Pr[A'(\mathcal{X}')=h']\]
+
+<p>2) Differential privacy is also retained under post-processing.
+   If $A$ is $\epsilon$-DP and $B(\mathcal{X})=f(A(\mathcal{X}))$ then $B(\mathcal{X})$ is $\epsilon$-DP.
+   <em>Proof</em>: considering all outputs $\forall h$ for datasets differing by at most one coordinate $|\mathcal{X}\Delta \mathcal{X}| \leq 1$:</p>
+
+\[\begin{align*} &amp;\Pr[f(A(\mathcal{X})) = h]\\ &amp;= \sum_{h' \in f^{-1}(h)} \Pr[A(\mathcal{X}) = h']  &amp; \leq e^{ \epsilon }\sum_{h' \in f^{-1}(h)}\Pr[A(\mathcal{X}')=h'] \\ &amp; &amp;= e^{\epsilon}\Pr[f(A'(\mathcal{X}'))=h] \end{align*}\]
+
+<p>3) Differential privacy can guarantee that training mechanisms are not blatantly broken.
+   Define a training mechanism $\mathcal{X} \to f_{w}$ as <em>broken</em> if there exists some transformation of $f$ that outputs a datapoint $x \in \mathcal{X}$.
+   If the mechanism is $(\epsilon,\delta)$-DP then the probability its broken is bounded by $\leq \frac{\epsilon}{N}+\delta$, where $\frac{1}{N}$ is the probability of guessing $x$ randomly.</p>
+
+<h3 id="differentially-private-statistics">Differentially Private Statistics</h3>
+<p>Suppose we want to publish estimates of some functions summed over our dataset. We want the estimates to be as close as possible while making sure that we respect privacy.</p>
+
+\[\hat{f}_{1} \approx \sum_{x \in \mathcal{X}} f_{1}(x),\dots,\hat{f}_{k} \approx \sum_{x \in \mathcal{X}} f_{k}(x)\]
+
+<div class="admonition question rounded">
+    <p class="admonition-title">Why should we worry about privacy when publishing sums?
+</p>
+    <p>
+        <p>Suppose we have a dataset of COVID cases in Cambridge, Massachusetts. A sum statistic for example could be the number of cases corresponding to Harvard professors, or to people who own cats. It turns out that while innocuous on their own, multiple sum statistics can be used to infer private information. Take the following example publication:</p>
+<ul>
+  <li>There are 30 total cases in Cambridge.</li>
+  <li>There are 29 cases of people under the age of $70$.</li>
+  <li>There are 12 cases of people with preexisting liver diseases.</li>
+  <li>There are 11 cases of people under the age of $70$ with preexisting liver diseases.</li>
+</ul>
+
+<p>From the first two, we can already deduce that only one positive case in Cambridge is aged $70$ or higher. With the other two, we can also now tell that that person has a liver disease. Anyone who knows the person over 70 that tested positive for COVID now knows they also have a liver disease. The same principle holds for larger datasets.</p>
+
+    </p>
+</div>
+
+<p>We can protect privacy by adding noise proportional to our desired $\epsilon$. This is known as the Laplace mechanism. We draw noise from the Laplace distribution, which is a symmetric exponential parameterized by some constant $b$ such that the probability of $x$ is exponentially small in $\frac{|x|}{b}$. The parameter $b$ is therefore proportional to the standard deviation.</p>
+
+\[\begin{align*}
+\Pr[\mathrm{Lap}(b) = x] &amp;= \frac{1}{2b}\exp\left( -\frac{|x|}{b} \right) \\
+\sigma^{2} &amp;= 2b^{2}
+\end{align*}\]
+
+<p>Assume our functions are binary functions $f_{i \in [1,k]}(x) \in [0,1]$, such as ones that select datapoints for inclusion in the sum, the Laplace mechanism is then applied with a standard deviation proportional to $\frac{k}{\epsilon}$. The choice of acceptable threshold is in practice chosen to be around $\sigma \approx \sqrt{ n }$, as the natural error in the data is likely to be similar.</p>
+
+\[\hat{f}_{i} = \sum_{x \in \mathcal{X}}f_{i}(x)+\mathrm{Lap}\left( \frac{k}{\epsilon} \right)\]
+
+<p>The Laplace mechanism is $\epsilon$-differentially private. We prove this on a single function $f$ which can be generalized by the composition property. We write $f(\mathcal{X})$ to denote the sum of $f(x)$ over the dataset $x \in \mathcal{X}$. Due to our choice of selecting functions the difference $|f(\mathcal{X})-f(\mathcal{X}’)|\leq 1$.</p>
+
+\[\begin{align}
+\Pr[\hat{f}(\mathcal{X})=v] &amp;= \Pr\left[f(\mathcal{X})+\mathrm{Lap\left( \frac{1}{\epsilon} \right) = v}\right]  \\
+&amp;= \frac{1}{2\epsilon}\exp(-\epsilon|v-f(\mathcal{X})|) \\
+&amp;\leq \frac{1}{2\epsilon}\exp\left(-\epsilon(1+|v-f(\mathcal{X'})\|)\right) \\
+&amp; = \frac{1}{2\epsilon}\exp\left(\epsilon-\epsilon\|v-f(\mathcal{X'})\|\right) \\
+&amp;\boxed{\leq e^{ \epsilon }\cdot\Pr[\hat{f}(\mathcal{X}')=v]}
+\end{align}\]
+
+<p>Generalizing for functions outside of sum we can achieve $\epsilon$-DP for an estimator with standard variation $\approx \frac{k}{\epsilon}$ of any $f:\mathcal{X}\to \mathbb{R}^{m}$ if it’s true that the <em>sensitivity of $f$</em> is under $k$: $|f(\mathcal{X})-f(\mathcal{X}’)|_{1}\leq k$ for all datasets that differ by a single element $|\mathcal{X} \Delta \mathcal{X}’| = 1$.</p>
+
+<div class="admonition warning rounded">
+    <p class="admonition-title">Definition versus Mechanism
+</p>
+    <p>
+        <p>The Laplace mechanism is so popular that it’s often confused to be synonymous with differential privacy, but in truth differential privacy is a definition of privacy, and the Laplace mechanism is but one approach to achieve it. Other noise distributions can be used, including Gaussian noise, usually achieving some $(\epsilon,\delta)$-DP. There are also mechanisms that don’t involve the addition of noise.</p>
+
+    </p>
+</div>
+
+<h3 id="dp-for-sgd">DP for SGD</h3>
+<p><a href="https://arxiv.org/abs/1607.00133">Abadi et al.</a> demonstrate differential privacy in the context of deep learning by injecting noise into the SGD step. They also introduce gradient clipping, where $\nabla_{\mathcal{L}_{i}^{C}}(w)$ are the gradients for every sample for weights $w$ according to loss $\mathcal{L}$ at batch $i$, clipped at $C$.</p>
+
+\[w_{t+1} \leftarrow w_{t} - \eta \left[ \nabla_{\mathcal{L}_{i}^{C}}(w) + N(0,\sigma^{2}C^{2}I) \right]\]
+
+<p>They show that for constant $\epsilon,C$ one can achieve $(\epsilon,\delta=O(1))$-DP with constant statistical error $\sigma$, with the limitation that the number of SGD steps is much smaller than $\ll \left( \frac{n}{b} \right)^{2}$, where $n$ is the number of samples and $b$ is the batch size.</p>
+
+<p>They achieved 97% on MNIST with very large epsilon ($\epsilon=8$), which might not be considered private but in practice seems to prevent blatant privacy attack. For CIFAR$-10$ they could get as far as around 70% accuracy, demonstrating the high cost of privacy to performance as you add more and more noise. They also show that even huge values of epsilon give some bounds on memorization attacks.</p>
+
+<p>Some approaches other than noise injection have shown promise for better scaling: <a href="https://arxiv.org/abs/1610.05755">Papernot et al.</a> trained teacher models on disparate private datasets, and let a public student model query a noisy private aggregate of the teacher ensembles (PATE). <a href="https://arxiv.org/abs/1802.08908">Subsequent research</a> was published on scaling this architecture.</p>
+
+<h2 id="heuristics">Heuristics</h2>
+
+<p>Heuristic methods can provide better privacy, with lower cost to accuracy and faster execution. The price is abandoning absolute guarantees.</p>
+
+<h3 id="instahide">InstaHide</h3>
+<p><a href="https://arxiv.org/abs/2010.02772">Huang et al. (2018)</a> introduced InstaHide, inspired by FHE, and optimized for standard training procedures. The private data is mixed together with public data before training.</p>
+
+<p>While the authors do not provide a definition of the privacy conditions the method satisfy, or proof thereof, but they attempt to justify a claim for privacy empirically. At the very least, one would hope that the encoding will be robust against reconstruction attacks. That is, that it would not be possible to efficiently reconstruct the private information from the encoded information.</p>
+
+<div class="admonition info rounded">
+    <p class="admonition-title">Mixup Augmentation
+</p>
+    <p>
+        <p>The intuition for InstaHide is taken from <a href="https://arxiv.org/abs/1710.09412">Mixup data augmentation</a>, where networks are trained on convex combinations of examples from different label to favor linear interpolation behavior, which has been shown to decrease memorization in the context of corrupted labels.</p>
+
+    </p>
+</div>
+
+<p>The procedure takes two private (secret) examples $x_{1}^{s},x_{2}^{s}$ along with two public examples $x_{1}^{p},x_{2}^{p}$ and combines them linearly. Then, every pixel in the resulting image is flipped randomly, similarly to the one-time-pad. In this case, however, instead of a binary variable, each pixel color is a point in the range $[-1,+1]$.</p>
+
+\[\begin{align*}
+x'  &amp; = \lambda_{1}x_{1}^{s}+\lambda_{2}x_{2}^{s}+\lambda_{3}x_{1}^{p}+\lambda_{4}x_{2}^{p}, &amp; \lambda_{1},\dots,\lambda_{4} \sim [0,1] \text{ s.t.} \sum_{i=1}^{4} \lambda_{i} = 1\\
+\tilde{x}  &amp; = (x_{1}'k_{1},\dots,x_{n}'k_{n}), &amp; k \sim \{ \pm 1 \}^{n}
+\end{align*}\]
+
+<p>While the authors have shown that this method does not degrade accuracy much, <a href="https://arxiv.org/abs/2011.05315">Carlini at al. (2020)</a> have shown that InstaHide is insecure. Their attack was able to retrieve visually-recognizable reconstructions of $100$ private images encoded into $5000$ “secure” images by InstaHide in under an hour on a single machine.</p>
+
+<p>The attackers used that fact that the random flipping transformation, performed on floating point numbers, preserves their absolute value which retains a non-trivial amount of information, enough to even recognize by eye.</p>
+
+<p><img src="/assets/post/privacy_instahide_attack.png" alt="" /></p>
+
+<p>Since every encoded image contains information about two private images, many are bound to overlap and share information from the same private image, in which case the encoded images will have some agreement. Even with only absolute value data, the attackers managed to train a neural network to leverage that agreement to classify whether a pair of encoded images share an image in common with high accuracy. Clustering the encoded images, the average of the cluster will retrieve the absolute value of the original image.</p>
+
+<p>The attackers could have stopped there, but they used the data to reconstruct the encoding graph, the values of $\lambda$ that produced each encoded image. Each encoded image is then reduced to a noisy combination of two unknown images.</p>
+
+\[\tilde{x} = \|\lambda_{1}x_{i}+\lambda_{2}x_{j}+N\|\]
+
+<p>The challenge answered by the attackers contained $5000$ encoded images constructed from only $100$ private images, which results in $5000n$ non-linear equations in $100n$ variables (where $n$ is the image size). Gradient descent was able to retrieve the images despite the non-linearities.</p>
+
+\[\arg \min_{X \in [-1,1]^{n \times t}} \\|\mathrm{abs}(AX)-\tilde{X}\\|^{2}\]
+
+<div class="admonition warning rounded">
+    <p class="admonition-title">Ambiguous Privacy
+</p>
+    <p>
+        <p>This example demonstrates the need for a definition of security that can be proven or tested, which might be more relaxed than that of differential privacy to allow for efficiency.</p>
+
+    </p>
+</div>
+
+<div class="admonition question rounded">
+    <p class="admonition-title">Why not avoid repeated use of private datapoints?
+</p>
+    <p>
+        <p>We must remember that data providers always have a maximum privacy alternative: not to share the data. If we increased the proportion of public data in the encoding, we’d rapidly lose the benefit of our private data, whether if due to noise or distribution shift.</p>
+
+    </p>
+</div>
+
+<h3 id="black-box-recovery">Black Box Recovery</h3>
+<p><a href="https://arxiv.org/abs/2003.04884">Carlini et al. (2020)</a> showed that even with limitations on queries from a black-box model, the model’s parameters can often be reconstructed.</p>
+
+<h2 id="summary">Summary</h2>
+<p>Queries can allow to reconstruct models, knowledge of the model can allow to reconstruct training data and knowledge of the training data, even if encrypted, can allow to reconstruct original private data.</p>
+
+<p>Therefore, definitions of security need to be proposed and mechanisms to ensure them need to be proven. The state of the field today can be summarized in three approaches:</p>
+<ul>
+  <li>Cryptographic approaches can <em>ensure</em> privacy, at great cost to performance and efficiency.</li>
+  <li>Differential privacy can allow for a tuned trade-off between privacy and utility, currently with high cost.</li>
+  <li>Heuristic approaches can be the best of both worlds, but lack guarantees and are in risk of attacks that can break them completely.</li>
+</ul>
+
+  </section>
+</div>
+
+<div id="top" class="top-btn" onclick="moveTop()">
+  <i class="fas fa-chevron-up"></i>
+</div>
+
+<script>
+  var lastScrollTop = 0;
+  window.onscroll = function () {
+    var st = document.body.scrollTop || document.documentElement.scrollTop;
+    if (st > 250) {
+      document.getElementById("top").style.display = "block"
+      if (st > lastScrollTop) {
+        document.getElementById("top").style.opacity = 0
+      } else {
+        document.getElementById("top").style.opacity = 1
+      }
+    } else {
+      document.getElementById("top").style.opacity = 0
+      if (st > lastScrollTop) {
+        document.getElementById("top").style.display = "none"
+      }
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }
+  function moveTop() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  <div class="footer">
+    Copyright © 2022
+    <a href=""></a>.
+    Powered by Jekyll with
+    <a href="https://github.com/chrjabs/Grape-Academic-Theme">Grape Academic Theme</a>.
+  </div>
+</footer>
+
+  </div>
+</body>
+
+</html>
