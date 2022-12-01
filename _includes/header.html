@@ -1,5 +1,8 @@
 {% assign _url = page.url | split: "/" %}
 {% assign current = _url[-1] | split: "." %}
+{% assign blogname = "Posts" %}
+{% assign homename = "Portfolio" %}
+{% assign tagsname = "Tags" %}
 <section id="header-nav">
   <header>
     <nav>
@@ -8,6 +11,9 @@
         <!-- home -->
         {% when none %}
         <li class="current">Portfolio</li>
+        <a href="{{ '/index.html#project' | relative_url }}">
+          <li class="btn-nav">Projects</li>
+        </a>
         {% if site.publications %}
           <a href="{{ '/publications' | relative_url }}">
             <li class="btn-nav">Publications</li>
@@ -20,16 +26,21 @@
         {% endif %}
         {% if site.blog %}
           <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">Blog</li>
+            <li class="btn-nav">{{ blogname }}</li>
           </a>
-          <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">Tags</li> 
-          </a>
+          {% if site.tagspage %}
+            <a href="{{ '/tags' | relative_url }}">
+              <li class="btn-nav">{{ tagsname }}</li> 
+            </a>
+          {% endif %}
         {% endif %}
         <!-- publications -->
         {% when 'publications' %}
         <a href="{{ '/'' | relative_url }}">
-          <li class="btn-nav">Home</li>
+          <li class="btn-nav">{{ homename }}</li>
+        </a>
+        <a href="{{ '/index.html#project' | relative_url }}">
+          <li class="btn-nav">Projects</li>
         </a>
         <li class="current">Publications</li>
         {% if site.presentations %}
@@ -39,16 +50,21 @@
         {% endif %}
         {% if site.blog %}
           <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">Blog</li>
+            <li class="btn-nav">{{ blogname }}</li>
           </a>
+          {% if site.tagspage %}
           <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">Tags</li>
+            <li class="btn-nav">{{ tagsname }}</li> 
           </a>
+          {% endif %}
         {% endif %}
         <!-- presentations -->
         {% when 'presentations' %}
         <a href="{{ '/'' | relative_url }}">
-          <li class="btn-nav">Home</li>
+          <li class="btn-nav">{{ homename }}</li>
+        </a>
+        <a href="{{ '/index.html#project' | relative_url }}">
+          <li class="btn-nav">Projects</li>
         </a>
         {% if site.publications %}
           <a href="{{ '/publications' | relative_url }}">
@@ -58,16 +74,21 @@
         <li class="current">Presentations</li>
         {% if site.blog %}
           <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">Blog</li>
+            <li class="btn-nav">{{ blogname }}</li>
           </a>
+          {% if site.tagspage %}
           <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">Tags</li>
+            <li class="btn-nav">{{ tagsname }}</li> 
           </a>
+          {% endif %}
         {% endif %}
         <!-- blog -->
         {% when 'blog' %}
         <a href="{{ '/' | relative_url }}">
-          <li class="btn-nav">Home</li>
+          <li class="btn-nav">{{ homename }}</li>
+        </a>
+        <a href="{{ '/index.html#project' | relative_url }}">
+          <li class="btn-nav">Projects</li>
         </a>
         {% if site.publications %}
           <a href="{{ '/publications' | relative_url }}">
@@ -79,14 +100,19 @@
             <li class="btn-nav">Presentations</li>
           </a>
         {% endif %}
-        <li class="current">Blog</li>
-        <a href="{{ '/tags' | relative_url }}">
-          <li class="btn-nav">Tags</li>
-        </a>
+        <li class="current">{{ blogname }}</li>
+        {% if site.tagspage %}
+          <a href="{{ '/tags' | relative_url }}">
+            <li class="btn-nav">{{ tagsname }}</li> 
+          </a>
+          {% endif %}
         <!-- tags -->
         {% when 'tags' %}
         <a href="{{ '/' | relative_url }}">
-          <li class="btn-nav">Home</li>
+          <li class="btn-nav">{{ homename }}</li>
+        </a>
+        <a href="{{ '/index.html#project' | relative_url }}">
+          <li class="btn-nav">Projects</li>
         </a>
         {% if site.publications %}
           <a href="{{ '/publications' | relative_url }}">
@@ -99,13 +125,13 @@
           </a>
         {% endif %}
           <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">Blog</li>
+            <li class="btn-nav">{{ blogname }}</li>
           </a>
-          <li class="current">Tags</li>
+          <li class="current">{{ tagsname }}</li>
         {% else %}
         <!-- others -->
         <a href="{{ '/' | relative_url }}">
-          <li class="btn-nav">Home</li>
+          <li class="btn-nav">{{ homename }}</li>
         </a>
         {% if site.publications %}
           <a href="{{ '/publications' | relative_url }}">
@@ -119,16 +145,18 @@
         {% endif %}
         {% if site.blog %}
           <a href="{{ '/blog' | relative_url }}">
-            <li class="current btn-nav">Blog</li>
+            <li class="current btn-nav">{{ blogname }}</li>
           </a>
+          {% if site.tagspage %}
           <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">Tags</li>
+            <li class="btn-nav">{{ tagsname }}</li> 
           </a>
+          {% endif %}
         {% endif %}
         {% endcase %}
-        <a href="{{ site.data.profile.social.cv }}">
+        <!-- <a href="{{ site.data.profile.social.cv }}">
           <li class="btn-nav">Download CV</li>
-        </a>
+        </a> -->
       </ul>
     </nav>
   </header>

@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Causality and Fairness
-subtitle : Notes for ML Theory Seminar
+subtitle : Notes on Lecture 9, Harvard CS229br, ML Theory Seminar
 tags: [Machine Learning]
 author: Yoav Rabinovich
 comments : False
 ---
+The following are notes taken on [lecture 9](https://harvard.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=87a43259-6b47-49f1-931f-acfa0177fe20) of the [Harvard CS229br](https://boazbk.github.io/mltheoryseminar/cs229br) seminar on machine learning theory, concerning causality and fairness in machine learning. Thanks to [Prof. Boaz Barak](https://www.boazbarak.org/) and his team for producing this seminar and sharing it freely.
 
 # Causality and Fairness
 ## Causality
@@ -214,7 +215,7 @@ $$
 
 If the causal graph was reversed, and $Z$ became a confounder, it would've been crucial to condition on $Z$ to estimate the causal probability. However in this case, it's crucial that we do not. Hospitalization here is an example of a *collider*. The effect of variable $Z$ on the causal probability of $X$ and $Y$ can be split into three cases: *fork/confounder*, *mediator* and *collider*. Only in the confounder case should we control for $Z$.
 
-.png{{ site.baseurl }}/assets/post/{{ site.baseurl }}/assets/post/confounder_mediator_collider.png)
+![]({{ site.baseurl }}/assets/post/confounder_mediator_collider.png)
 
 ### Causal Models
 There are two ways to interpret causal models. According to frequentists, the causal probability $\Pr[A\mid \text{do }B]$ is the ratio of experiments where $A$ occurs if we do $B$ and repeat the experiment many times. Bayesians see the causal probability as a *counter-factual*: We might have already observed the outcome of $A$ without doing $B$, but we can say that $A$ would've occurred with probability $\Pr[A\mid \text{do }B]$ in a world where we did do $B$.
