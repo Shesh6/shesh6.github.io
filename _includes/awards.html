@@ -1,8 +1,20 @@
 {% if site.data.profile.awards %}
   <p class="title">{{ site.theme_settings.awards_title }}</p>
-  <ul class="awards-list">
+  <br>
+  <!-- <ul class="awards-list">
     {% for award in site.data.profile.awards %}
     <li class="award">{{ award }}</li>
+    {% endfor %}
+  </ul> -->
+  <ul class="tag-cloud">
+    {% for lib in site.data.profile.libs %}
+    <a href="{{ lib.url }}">
+      <li class="tag"
+        style="background-color: #78080c">
+        <img class="icon" src="{{ lib.icon }}" /> 
+        <span>{{ lib.lib }}</span>
+      </li>
+    </a>
     {% endfor %}
   </ul>
 {% endif %}

@@ -228,5 +228,35 @@
         vertical-align: text-top;
       }
     }
+    ul.tag-cloud {
+      padding-left: 10px;
+    }
+    .icon {
+      height: 20px;
+      width: 20px;
+      vertical-align: text-bottom;
+      text-align: center;
+      display: inline;
+      margin-left: 4px;
+    }
+    li.tag {
+      padding: 0px 3px 0px;
+      // padding-right: 0px !important; /* Remove default padding */
+    }
+    
+    li.tag span {
+      max-width: 0;
+      display: inline-flex;
+      flex-wrap: wrap ;
+      white-space: nowrap;
+      transition: max-width 0.8s, padding-right 0.45s; /* Transition width and padding to avoid "popping" */
+      overflow: hidden;
+      padding-left: 2px; /* Add default button padding */
+    }
+    
+    li.tag:hover span, .li.tag:focus span {
+      max-width: 150px; /* how far the text can expand, adjust based on content */
+      padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
+    }
   }
 }

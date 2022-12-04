@@ -6,158 +6,158 @@
 <section id="header-nav">
   <header>
     <nav>
-      <ul>
-        {% case current[0] %}
-        <!-- home -->
-        {% when none %}
-        <li class="current">Portfolio</li>
-        <a href="{{ '/index.html#project' | relative_url }}">
-          <li class="btn-nav">Projects</li>
-        </a>
-        {% if site.publications %}
-          <a href="{{ '/publications' | relative_url }}">
-            <li class="btn-nav">Publications</li>
+        <ul>
+          {% case current[0] %}
+          <!-- home -->
+          {% when none %}
+          <li class="current">Portfolio</li>
+          <a href="{{ '/index.html#project' | relative_url }}">
+            <li class="btn-nav">Projects</li>
           </a>
-        {% endif %}
-        {% if site.presentations %}
-          <a href="{{ '/presentations' | relative_url }}">
-            <li class="btn-nav">Presentations</li>
+          {% if site.publications %}
+            <a href="{{ '/publications' | relative_url }}">  
+              <li class="btn-nav">Publications</li>
+            </a>
+          {% endif %}
+          {% if site.presentations %}
+            <a href="{{ '/presentations' | relative_url }}">
+              <li class="btn-nav">Presentations</li>
+            </a>
+          {% endif %}
+          {% if site.blog %}
+            <a href="{{ '/blog' | relative_url }}">
+              <li class="btn-nav">{{ blogname }}</li>
+            </a>
+            {% if site.tagspage %}
+              <a href="{{ '/tags' | relative_url }}">
+                <li class="btn-nav">{{ tagsname }}</li> 
+              </a>
+            {% endif %}
+          {% endif %}
+          <!-- publications -->
+          {% when 'publications' %}
+          <a href="{{ '/'' | relative_url }}">
+            <li class="btn-nav">{{ homename }}</li>
           </a>
-        {% endif %}
-        {% if site.blog %}
-          <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">{{ blogname }}</li>
+          <a href="{{ '/index.html#project' | relative_url }}">
+            <li class="btn-nav">Projects</li>
           </a>
+          <li class="current">Publications</li>
+          {% if site.presentations %}
+            <a href="{{ '/presentations' | relative_url }}">
+              <li class="btn-nav">Presentations</li>
+            </a>
+          {% endif %}
+          {% if site.blog %}
+            <a href="{{ '/blog' | relative_url }}">
+              <li class="btn-nav">{{ blogname }}</li>
+            </a>
+            {% if site.tagspage %}
+            <a href="{{ '/tags' | relative_url }}">
+              <li class="btn-nav">{{ tagsname }}</li> 
+            </a>
+            {% endif %}
+          {% endif %}
+          <!-- presentations -->
+          {% when 'presentations' %}
+          <a href="{{ '/'' | relative_url }}">
+            <li class="btn-nav">{{ homename }}</li>
+          </a>
+          <a href="{{ '/index.html#project' | relative_url }}">
+            <li class="btn-nav">Projects</li>
+          </a>
+          {% if site.publications %}
+            <a href="{{ '/publications' | relative_url }}">
+              <li class="btn-nav">Publications</li>
+            </a>
+          {% endif %}
+          <li class="current">Presentations</li>
+          {% if site.blog %}
+            <a href="{{ '/blog' | relative_url }}">
+              <li class="btn-nav">{{ blogname }}</li>
+            </a>
+            {% if site.tagspage %}
+            <a href="{{ '/tags' | relative_url }}">
+              <li class="btn-nav">{{ tagsname }}</li> 
+            </a>
+            {% endif %}
+          {% endif %}
+          <!-- blog -->
+          {% when 'blog' %}
+          <a href="{{ '/' | relative_url }}">
+            <li class="btn-nav">{{ homename }}</li>
+          </a>
+          <a href="{{ '/index.html#project' | relative_url }}">
+            <li class="btn-nav">Projects</li>
+          </a>
+          {% if site.publications %}
+            <a href="{{ '/publications' | relative_url }}">
+              <li class="btn-nav">Publications</li>
+            </a>
+          {% endif %}
+          {% if site.presentations %}
+            <a href="{{ '/presentations' | relative_url }}">
+              <li class="btn-nav">Presentations</li>
+            </a>
+          {% endif %}
+          <li class="current">{{ blogname }}</li>
           {% if site.tagspage %}
             <a href="{{ '/tags' | relative_url }}">
               <li class="btn-nav">{{ tagsname }}</li> 
             </a>
+            {% endif %}
+          <!-- tags -->
+          {% when 'tags' %}
+          <a href="{{ '/' | relative_url }}">
+            <li class="btn-nav">{{ homename }}</li>
+          </a>
+          <a href="{{ '/index.html#project' | relative_url }}">
+            <li class="btn-nav">Projects</li>
+          </a>
+          {% if site.publications %}
+            <a href="{{ '/publications' | relative_url }}">
+              <li class="btn-nav">Publications</li>
+            </a>
           {% endif %}
-        {% endif %}
-        <!-- publications -->
-        {% when 'publications' %}
-        <a href="{{ '/'' | relative_url }}">
-          <li class="btn-nav">{{ homename }}</li>
-        </a>
-        <a href="{{ '/index.html#project' | relative_url }}">
-          <li class="btn-nav">Projects</li>
-        </a>
-        <li class="current">Publications</li>
-        {% if site.presentations %}
-          <a href="{{ '/presentations' | relative_url }}">
-            <li class="btn-nav">Presentations</li>
-          </a>
-        {% endif %}
-        {% if site.blog %}
-          <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">{{ blogname }}</li>
-          </a>
-          {% if site.tagspage %}
-          <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">{{ tagsname }}</li> 
-          </a>
+          {% if site.presentations %}
+            <a href="{{ '/presentations' | relative_url }}">
+              <li class="btn-nav">Presentations</li>
+            </a>
           {% endif %}
-        {% endif %}
-        <!-- presentations -->
-        {% when 'presentations' %}
-        <a href="{{ '/'' | relative_url }}">
-          <li class="btn-nav">{{ homename }}</li>
-        </a>
-        <a href="{{ '/index.html#project' | relative_url }}">
-          <li class="btn-nav">Projects</li>
-        </a>
-        {% if site.publications %}
-          <a href="{{ '/publications' | relative_url }}">
-            <li class="btn-nav">Publications</li>
+            <a href="{{ '/blog' | relative_url }}">
+              <li class="btn-nav">{{ blogname }}</li>
+            </a>
+            <li class="current">{{ tagsname }}</li>
+          {% else %}
+          <!-- others -->
+          <a href="{{ '/' | relative_url }}">
+            <li class="btn-nav">{{ homename }}</li>
           </a>
-        {% endif %}
-        <li class="current">Presentations</li>
-        {% if site.blog %}
-          <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">{{ blogname }}</li>
-          </a>
-          {% if site.tagspage %}
-          <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">{{ tagsname }}</li> 
-          </a>
+          {% if site.publications %}
+            <a href="{{ '/publications' | relative_url }}">
+              <li class="btn-nav">Publications</li>
+            </a>
           {% endif %}
-        {% endif %}
-        <!-- blog -->
-        {% when 'blog' %}
-        <a href="{{ '/' | relative_url }}">
-          <li class="btn-nav">{{ homename }}</li>
-        </a>
-        <a href="{{ '/index.html#project' | relative_url }}">
-          <li class="btn-nav">Projects</li>
-        </a>
-        {% if site.publications %}
-          <a href="{{ '/publications' | relative_url }}">
-            <li class="btn-nav">Publications</li>
-          </a>
-        {% endif %}
-        {% if site.presentations %}
-          <a href="{{ '/presentations' | relative_url }}">
-            <li class="btn-nav">Presentations</li>
-          </a>
-        {% endif %}
-        <li class="current">{{ blogname }}</li>
-        {% if site.tagspage %}
-          <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">{{ tagsname }}</li> 
-          </a>
+          {% if site.presentations %}
+            <a href="{{ '/presentations' | relative_url }}">
+              <li class="btn-nav">Presentations</li>
+            </a>
           {% endif %}
-        <!-- tags -->
-        {% when 'tags' %}
-        <a href="{{ '/' | relative_url }}">
-          <li class="btn-nav">{{ homename }}</li>
-        </a>
-        <a href="{{ '/index.html#project' | relative_url }}">
-          <li class="btn-nav">Projects</li>
-        </a>
-        {% if site.publications %}
-          <a href="{{ '/publications' | relative_url }}">
-            <li class="btn-nav">Publications</li>
-          </a>
-        {% endif %}
-        {% if site.presentations %}
-          <a href="{{ '/presentations' | relative_url }}">
-            <li class="btn-nav">Presentations</li>
-          </a>
-        {% endif %}
-          <a href="{{ '/blog' | relative_url }}">
-            <li class="btn-nav">{{ blogname }}</li>
-          </a>
-          <li class="current">{{ tagsname }}</li>
-        {% else %}
-        <!-- others -->
-        <a href="{{ '/' | relative_url }}">
-          <li class="btn-nav">{{ homename }}</li>
-        </a>
-        {% if site.publications %}
-          <a href="{{ '/publications' | relative_url }}">
-            <li class="btn-nav">Publications</li>
-          </a>
-        {% endif %}
-        {% if site.presentations %}
-          <a href="{{ '/presentations' | relative_url }}">
-            <li class="btn-nav">Presentations</li>
-          </a>
-        {% endif %}
-        {% if site.blog %}
-          <a href="{{ '/blog' | relative_url }}">
-            <li class="current btn-nav">{{ blogname }}</li>
-          </a>
-          {% if site.tagspage %}
-          <a href="{{ '/tags' | relative_url }}">
-            <li class="btn-nav">{{ tagsname }}</li> 
-          </a>
+          {% if site.blog %}
+            <a href="{{ '/blog' | relative_url }}">
+              <li class="current btn-nav">{{ blogname }}</li>
+            </a>
+            {% if site.tagspage %}
+            <a href="{{ '/tags' | relative_url }}">
+              <li class="btn-nav">{{ tagsname }}</li> 
+            </a>
+            {% endif %}
           {% endif %}
-        {% endif %}
-        {% endcase %}
-        <!-- <a href="{{ site.data.profile.social.cv }}">
-          <li class="btn-nav">Download CV</li>
-        </a> -->
-      </ul>
+          {% endcase %}
+          <!-- <a href="{{ site.data.profile.social.cv }}">
+            <li class="btn-nav">Download CV</li>
+          </a> -->
+        </ul>
     </nav>
   </header>
 </section>

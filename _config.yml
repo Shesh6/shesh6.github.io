@@ -6,25 +6,25 @@ baseurl: ""
 publications: True
 presentations: True
 blog: True
-tags: False
+tagspage: False
 
 # Language of the website
 lang: en
 
 # Search engine optimization settings
-title: Yoav Rabinovich CV
+title: Yoav Rabinovich
 tagline: Machine Learning Theory, Natural Language Processing, Quantum Computing.
-description: Personal Website for Yoav Rabinovich
+description: Yoav Rabinovich, Research Fellow at Harvard University
 author: Yoav Rabinovich
 twitter:
   username:
   card:
-logo: /assets/img/smile.png
+logo: /android-chrome-512x512.png
 social:
   name: Yoav Rabinovich
   links:
     - https://github.com/Shesh6
-locale: en_GB
+locale: en_US
 
 # Page Settings
 theme_settings:
@@ -32,8 +32,8 @@ theme_settings:
 
   experience_title: EXPERIENCE
   interests_title: RESEARCH INTERESTS
-  skills_title: SKILLS
-  awards_title: AWARDS
+  skills_title: QUALITIES
+  awards_title: SKILLS
   projects_title: PROJECTS
   recentpubs_title: RECENT PUBLICATIONS
 

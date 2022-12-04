@@ -56,4 +56,53 @@ social:
   instagram: 
   cv: https://github.com/Shesh6/shesh6.github.io/raw/main/Yoav_Rabinovich_CV_150822.pdf
 awards: # Remove for hiding the awards section
-  - "Voted \"Most Likely to Include This in His CV\" at Blich High School"
+  -
+libs:
+  - lib: Python
+    icon: assets/icon/python.svg
+    url: https://www.python.org/
+  - lib: Numpy
+    icon: assets/icon/numpy.svg
+    url: https://numpy.org/
+  - lib: Pytorch
+    icon: assets/icon/pytorch.svg
+    url: https://www.pytorch.org/
+  - lib: Tensorflow
+    icon: assets/icon/tensorflow.svg
+    url: https://www.tensorflow.org/
+  - lib: Fast.ai
+    icon: assets/icon/fastai.svg
+    url: https://www.fast.ai/
+  - lib: Pandas
+    icon: assets/icon/pandas.svg
+    url: https://pandas.pydata.org/
+  - lib: Scikit-Learn
+    icon: assets/icon/scikit-learn.svg
+    url: https://scikit-learn.org/
+  - lib: Matplotlib
+    icon: assets/icon/matplotlib.svg
+    url: https://matplotlib.org/
+  - lib: OpenCV
+    icon: assets/icon/opencv.svg
+    url: https://opencv.org/
+  - lib: C#
+    icon: assets/icon/csharp.svg
+    url: https://dotnet.microsoft.com/en-us/languages/csharp
+  - lib: R
+    icon: assets/icon/r-lang.svg
+    url: https://www.r-project.org/
+  - lib: Julia
+    icon: assets/icon/julia.svg
+    url: https://www.r-project.org/
+  - lib: HTML
+    icon: assets/icon/html.svg
+    url: https://html.spec.whatwg.org/
+  - lib: CSS
+    icon: assets/icon/css.svg
+    url: https://www.w3.org/Style/CSS/
+  - lib: JavaScript
+    icon: assets/icon/javascript.svg
+    url: https://www.javascript.com/
+  - lib: Unity
+    icon: assets/icon/unity.svg
+    url: https://unity.com/
