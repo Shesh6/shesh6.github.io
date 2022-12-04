@@ -238,6 +238,8 @@
       text-align: center;
       display: inline;
       margin-left: 4px;
+      object-fit: contain;
+      max-width:100%;
     }
     li.tag {
       padding: 0px 3px 0px;
