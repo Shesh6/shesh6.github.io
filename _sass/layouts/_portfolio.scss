@@ -261,10 +261,10 @@
       padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
     }
     @media(hover : none) {
-      li a {
+      li.tag span a {
         pointer-events: none;
       }
-      li:hover a {
+      li.tag:hover span a, .li.tag:focus span {
         max-width: 150px; /* how far the text can expand, adjust based on content */
         padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
       }
