@@ -260,5 +260,10 @@
       max-width: 150px; /* how far the text can expand, adjust based on content */
       padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
     }
+    @media(hover : none) {
+      a {
+        pointer-events: none;
+      }
+    }
   }
 }
