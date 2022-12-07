@@ -151,3 +151,5 @@ libs:
   - lib: Blender
     icon: assets/icon/blender.svg
     url: https://www.blender.org/
+  - lib: I also play guitar
+    icon: assets/icon/guitar.svg
