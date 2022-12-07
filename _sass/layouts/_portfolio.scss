@@ -234,15 +234,21 @@
     .icon {
       height: 20px;
       width: 20px;
-      vertical-align: text-bottom;
+      vertical-align: middle;
       text-align: center;
       display: inline;
       margin-left: 4px;
+      margin-bottom: 3px;
       object-fit: contain;
-      max-width:100%;
+      max-width:100%; 
     }
     li.tag {
       padding: 0px 3px 0px;
+      background-color: #fff;
+      border-color: $theme-dark;
+      border-width: 2px;
+      border-style: solid;
+      color: black !important;
       // padding-right: 0px !important; /* Remove default padding */
     }
     
@@ -255,19 +261,13 @@
       overflow: hidden;
       padding-left: 2px; /* Add default button padding */
     }
-    
-    li.tag:hover span, .li.tag:focus span {
-      max-width: 150px; /* how far the text can expand, adjust based on content */
+    // .li.tag:focus span {
+    //   max-width: 150px !important; /* how far the text can expand, adjust based on content */
+    //   padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
+    // }
+    .active span {
+      max-width: 150px !important; /* how far the text can expand, adjust based on content */
       padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
-    }
-    @media(hover : none) {
-      li.tag span a {
-        pointer-events: none;
-      }
-      li.tag:hover span a, .li.tag:focus span {
-        max-width: 150px; /* how far the text can expand, adjust based on content */
-        padding-right: 10px !important; /* Adds spacing on the right of the text when expanded */
-      }
     }
   }
 }

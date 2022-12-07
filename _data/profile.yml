@@ -64,12 +64,18 @@ libs:
   - lib: Numpy
     icon: assets/icon/numpy.svg
     url: https://numpy.org/
+  - lib: SciPy
+    icon: assets/icon/scipy.svg
+    url: https://scipy.org/
   - lib: Pytorch
     icon: assets/icon/pytorch.svg
     url: https://pytorch.org/
   - lib: Tensorflow
     icon: assets/icon/tensorflow.svg
     url: https://www.tensorflow.org/
+  - lib: Keras
+    icon: assets/icon/keras.svg
+    url: https://keras.io/
   - lib: Fast.ai
     icon: assets/icon/fastai.svg
     url: https://www.fast.ai/
@@ -82,9 +88,21 @@ libs:
   - lib: Matplotlib
     icon: assets/icon/matplotlib.svg
     url: https://matplotlib.org/
+  - lib: SpaCy
+    icon: assets/icon/spacy.svg
+    url: https://spacy.io/
+  - lib: NLTK
+    icon: assets/icon/nltk.svg
+    url: https://www.nltk.org
   - lib: OpenCV
     icon: assets/icon/opencv.svg
     url: https://opencv.org/
+  - lib: HuggingFace
+    icon: assets/icon/huggingface.svg
+    url: https://huggingface.co/
+  - lib: Weights & Biases
+    icon: assets/icon/wandb.svg
+    url: https://wandb.ai/
   - lib: C#
     icon: assets/icon/csharp.svg
     url: https://dotnet.microsoft.com/en-us/languages/csharp

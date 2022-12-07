@@ -8,8 +8,7 @@
   </ul> -->
   <ul class="tag-cloud">
     {% for lib in site.data.profile.libs %}
-    <li class="tag"
-      style="background-color: #78080c">
+    <li class="tag"> <!-- style="background-color: #78080c" -->
       <a href="{{ lib.url }}">
         <img class="icon" src="{{ lib.icon }}" /> 
         <span>{{ lib.lib }}</span>
@@ -17,4 +16,5 @@
     </li>
     {% endfor %}
   </ul>
+{% include scripts/awards.html %}
 {% endif %}
