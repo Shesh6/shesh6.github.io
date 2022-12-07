@@ -61,6 +61,12 @@ libs:
   - lib: Python
     icon: assets/icon/python.svg
     url: https://www.python.org/
+  - lib: Jupyter
+    icon: assets/icon/jupyter.svg
+    url: https://jupyter.org/
+  - lib: Anaconda
+    icon: assets/icon/anaconda.svg
+    url: https://www.anaconda.com/
   - lib: Numpy
     icon: assets/icon/numpy.svg
     url: https://numpy.org/
@@ -94,6 +100,9 @@ libs:
   - lib: NLTK
     icon: assets/icon/nltk.svg
     url: https://www.nltk.org
+  - lib: Gensim
+    icon: assets/icon/gensim.svg
+    url: https://radimrehurek.com/gensim/
   - lib: OpenCV
     icon: assets/icon/opencv.svg
     url: https://opencv.org/
@@ -112,6 +121,9 @@ libs:
   - lib: Julia
     icon: assets/icon/julia.svg
     url: https://www.r-project.org/
+  - lib: MATLAB
+    icon: assets/icon/matlab.svg
+    url: https://www.mathworks.com/
   - lib: HTML
     icon: assets/icon/html.svg
     url: https://html.spec.whatwg.org/
@@ -121,6 +133,21 @@ libs:
   - lib: JavaScript
     icon: assets/icon/javascript.svg
     url: https://www.javascript.com/
+  - lib: SQL
+    icon: assets/icon/sql.svg
+    url: https://www.iso.org/standard/63555.html
+  - lib: Git
+    icon: assets/icon/git.svg
+    url: https://git-scm.com
+  - lib: Docker
+    icon: assets/icon/docker.svg
+    url: https://www.docker.com/
+  - lib: Slurm
+    icon: assets/icon/slurm.svg
+    url: https://slurm.schedmd.com
   - lib: Unity
     icon: assets/icon/unity.svg
     url: https://unity.com/
+  - lib: Blender
+    icon: assets/icon/blender.svg
+    url: https://www.blender.org/
