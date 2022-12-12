@@ -103,15 +103,21 @@ libs:
   - lib: Gensim
     icon: assets/icon/gensim.svg
     url: https://radimrehurek.com/gensim/
-  - lib: OpenCV
-    icon: assets/icon/opencv.svg
-    url: https://opencv.org/
   - lib: HuggingFace
     icon: assets/icon/huggingface.svg
     url: https://huggingface.co/
+  - lib: OpenCV
+    icon: assets/icon/opencv.svg
+    url: https://opencv.org/
   - lib: Weights & Biases
     icon: assets/icon/wandb.svg
     url: https://wandb.ai/
+  - lib: Qiskit
+    icon: assets/icon/qiskit.svg
+    url: https://qiskit.org
+  - lib: Cirq
+    icon: assets/icon/cirq.svg
+    url: https://quantumai.google/cirq
   - lib: C#
     icon: assets/icon/csharp.svg
     url: https://dotnet.microsoft.com/en-us/languages/csharp
@@ -136,12 +142,18 @@ libs:
   - lib: SQL
     icon: assets/icon/sql.svg
     url: https://www.iso.org/standard/63555.html
+  - lib: Bash
+    icon: assets/icon/bash.svg
+    url: https://www.gnu.org/software/bash/
   - lib: Git
     icon: assets/icon/git.svg
     url: https://git-scm.com
   - lib: Docker
     icon: assets/icon/docker.svg
     url: https://www.docker.com/
+  - lib: VS Code
+    icon: assets/icon/vscode.svg
+    url: https://code.visualstudio.com/
   - lib: Slurm
     icon: assets/icon/slurm.svg
     url: https://slurm.schedmd.com
